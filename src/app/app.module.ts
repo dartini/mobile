@@ -7,10 +7,20 @@ import {AppComponent} from './app.component';
 import {CoreModule} from './module/core/core.module';
 import {AppRoutingModule} from './app-routing.module';
 import {environment} from '../environments/environment';
+import {LoginComponent} from './component/login/login.component';
+import { LayoutComponent } from './component/layout/layout.component';
+import {TargetsComponent} from './component/targets/targets.component';
+import {AuthGuard} from './auth.guard';
+import {NgxTsSerializerModule} from 'ngx-ts-serializer';
+import { SideMenuComponent } from './component/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    LayoutComponent,
+    TargetsComponent,
+    SideMenuComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -18,9 +28,12 @@ import {environment} from '../environments/environment';
     AngularFireAuthModule,
     AppRoutingModule,
     BrowserModule,
-    CoreModule
+    CoreModule,
+    NgxTsSerializerModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,27 @@
+<ng-container *ngIf="user|async as u">
+  <div class="overlay" *ngIf="sideMenuOpened" (click)="sideMenuOpened = false">
+  </div>
+  <nav class="side-menu from-{{ direction }}" [ngClass]="{open: sideMenuOpened}">
+    <div class="header-account">
+      <img src="{{ u.photoURL }}" />
+      <p>
+        {{ u.displayName }}
+        <br/>
+        <span>{{ u.username }}</span>
+      </p>
+    </div>
+    <div class="section-title"></div>
+    <a routerLink="/app/targets"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}"
+       (click)="sideMenuOpened = false">
+      <span class="fa fa-home mr-2"></span>Cibles
+    </a>
+    <a routerLink="/app/results"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}"
+       (click)="sideMenuOpened = false">
+      <span class="fa fa-table mr-2"></span>Classements
+    </a>
+  </nav>
+</ng-container>

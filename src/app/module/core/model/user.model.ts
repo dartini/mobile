@@ -1,10 +1,19 @@
+import {JsonProperty} from 'ts-serializer-core';
+
 export class User {
 
+  @JsonProperty({name: 'uid', excludeToJson: true})
   public id: string;
 
-  public username: string = void 0;
+  @JsonProperty('displayName')
+  public displayName: string;
 
-  public displayName: string = void 0;
+  @JsonProperty('email')
+  public email: string;
 
-  public photoURL: string = void 0;
+  @JsonProperty('photoURL')
+  public photoURL: string;
+
+  @JsonProperty('targets')
+  public targetsNames: string[];
 }

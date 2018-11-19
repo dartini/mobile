@@ -1,3 +1,4 @@
+import {TargetService} from './service/target.service';
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {AuthService} from './service/auth.service';
 import {UserService} from './service/user.service';
@@ -5,7 +6,8 @@ import {UserService} from './service/user.service';
 @NgModule({
   providers: [
     AuthService,
-    UserService
+    UserService,
+    TargetService
   ]
 })
 export class CoreModule {

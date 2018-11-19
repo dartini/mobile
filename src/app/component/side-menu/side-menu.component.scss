@@ -1,0 +1,101 @@
+@import '../../../styles/variables';
+
+$side-menu-width: 300px;
+$side-menu-background-color: #111;
+$side-menu-header-height: 100px;
+$side-menu-header-image-height: 60px;
+$side-menu-header-image-width: 60px;
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1031;
+}
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1032;
+  top: 0;
+  background-color: $side-menu-background-color;
+  overflow-x: hidden;
+  transition: 0.3s;
+
+  &.from-left {
+    left: 0;
+
+    &.open {
+      width: $side-menu-width;
+      max-width: 100%;
+    }
+  }
+
+  &.from-right {
+    right: 0;
+    max-width: 100%;
+
+    &.open {
+      width: $side-menu-width;
+    }
+  }
+
+  .header-account {
+    height: $side-menu-header-height;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    img {
+      border-radius: 50%;
+      height: $side-menu-header-image-height;
+      width: $side-menu-header-image-width;
+      min-height: $side-menu-header-image-height;
+      min-width: $side-menu-header-image-width;
+    }
+
+    p {
+      margin-left: 10px;
+      margin-bottom: 0;
+      color: $light;
+      font-size: 16px;
+      white-space: nowrap;
+
+      span {
+        font-size: 14px;
+        color: #818181;
+      }
+    }
+  }
+
+  a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    white-space: nowrap;
+
+    &:hover, &.active {
+      color: #f1f1f1;
+    }
+  }
+
+  .section-title {
+    border-top: solid 1px #818181;
+    border-bottom: solid 1px #818181;
+    margin: 8px 0;
+    padding: 0 8px;
+    background-color: #818181;
+    color: $side-menu-background-color;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

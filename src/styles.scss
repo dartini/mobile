@@ -1,3 +1,7 @@
 @import "styles/variables";
 
+html, body {
+  max-width: 100%;
+}
+
 @import "~bootstrap/scss/bootstrap";

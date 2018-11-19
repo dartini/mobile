@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+
+.title-bar {
+  background-color: $primary;
+  color: $light;
+
+  a.btn {
+    span {
+      font-size: 24px;
+    }
+  }
+}
+
+main {
+  padding-top: 60px;
+  max-width: 100%;
+}

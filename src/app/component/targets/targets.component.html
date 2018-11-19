@@ -1,0 +1,8 @@
+<div class="d-flex">
+  <div class="card m-1 flex-wrap" *ngFor="let target of targets$|async">
+    <span class="card-img-top fa fa-bullseye"></span>
+    <div class="card-body">
+      <p class="card-text text-nowrap d-block">{{ target.name }}</p>
+    </div>
+  </div>
+</div>

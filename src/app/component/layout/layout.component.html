@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <app-side-menu #sideMenu></app-side-menu>
+
+  <h1 class="title-bar h4 p-2 fixed-top">
+    <a class="btn pt-1" role="button"
+       (click)="sideMenu.sideMenuOpened = true; $event.stopPropagation()"><span class="fa fa-bars"></span>
+    </a>
+    {{ title }}
+  </h1>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

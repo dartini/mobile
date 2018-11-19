@@ -1,14 +1,14 @@
 import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/index';
-import {fromPromise} from 'rxjs/internal/observable/fromPromise';
-import {share} from 'rxjs/internal/operators';
+import {Observable} from 'rxjs';
+import {map, share} from 'rxjs/operators';
+import {fromPromise} from 'rxjs/internal-compatibility';
 
 @Injectable()
 export class AuthService {
 
-  public user: Observable<firebase.User>;
+  public user: Observable<firebase.User> = null;
 
   public constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.authState.pipe(share());
@@ -16,6 +16,12 @@ export class AuthService {
 
   public authenticateWithFacebook(): Observable<any> {
     return fromPromise(this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()));
+  }
+
+  public isLogged(): Observable<boolean> {
+    return this.user.pipe(
+      map((user: firebase.User) => !!user)
+    );
   }
 
   public logout() {
